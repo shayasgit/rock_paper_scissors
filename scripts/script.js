@@ -66,9 +66,9 @@ function playGame() {
 let playerScore = 0;
 let computerScore = 0;
 
-for (let i = 0; i < 5; i++) {
-    console.log(playGame());
-}
+// for (let i = 0; i < 5; i++) {
+//     console.log(playGame());
+// }
 
 console.log("Player Score is " + playerScore);
 console.log("Computer Score is " + computerScore);

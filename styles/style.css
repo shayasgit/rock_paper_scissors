@@ -1,3 +1,51 @@
 h1 {
     text-align: center;
 }
+
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.btn-container button {
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn-container button:active {
+    background-color: olive;
+}
+
+.board-container {
+    display: flex;
+    margin: auto;
+    width: 500px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.board-container h2 {
+    width: 126px;
+}
+
+.board-container .result {
+    width: auto;
+    color: red;
+}
+
+.heading, .scores, .selections {
+    text-decoration: underline;
+}
+
+.score, .selection {
+    text-align: center;
+}
