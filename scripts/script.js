@@ -108,34 +108,21 @@ function playRound(playerSelection, computerSelection) {
     if (playerScore >= 5 || computerScore >= 5) {
         if (playerScore > computerScore) {
             winner.textContent = 'Winner is Player';
-            winner.style.color = 'green';
+            winner.style.color = 'chartreuse';
+            winner.style.textShadow = '0px 0px 30px white,0px 0px 30px green,0px 0px 30px green,0px 0px 10px #553300,0px 0px 10px #553300';
+
         } else if (playerScore < computerScore) {
             winner.textContent = 'Winner is Computer';
-            winner.style.color = 'green';
+            winner.style.color = 'chartreuse';
+            winner.style.textShadow = '0px 0px 30px white,0px 0px 30px green,0px 0px 30px green,0px 0px 10px #553300,0px 0px 10px #553300';
         } else {
             winner.textContent = `It's TIE!`;
             winner.style.color = 'green';
+            winner.style.textShadow = '0px 0px 30px white,0px 0px 30px green,0px 0px 30px gree,0px 0px 10px #553300,0px 0px 10px #553300';
+
         }
     }
 }
-
-// function playGame() {
-//     let playerSelection = getPlayerSelection();
-//     let computerSelection = getComputerChoice();
-//     console.log(playerSelection);
-//     console.log(computerSelection);
-//     return playRound(playerSelection, computerSelection)
-// }
-
-
-// for (let i = 0; i < 5; i++) {
-//     console.log(playGame());
-// }
-
-
-
-
-
 
 let playerScore = 0;
 let computerScore = 0;

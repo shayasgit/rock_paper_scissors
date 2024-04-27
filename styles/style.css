@@ -30,6 +30,7 @@ h1 {
     width: 500px;
     justify-content: space-between;
     align-items: center;
+    align-content: center;
     flex-wrap: wrap;
 }
 
@@ -38,18 +39,20 @@ h1 {
 }
 
 .board-container .result {
-    width: auto;
     color: red;
 }
 
-.result {
-    width: 500px;
-}
-
-.heading, .scores, .selections {
+.heading,
+.scores,
+.selections {
     text-decoration: underline;
 }
 
-.score, .selection {
+.score,
+.selection {
+    text-align: center;
+}
+
+.declare {
     text-align: center;
 }
