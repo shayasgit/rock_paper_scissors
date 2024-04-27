@@ -22,61 +22,130 @@ function getPlayerSelection() {
 
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == computerSelection) {
+    let winner = document.querySelector('.winner');
+    let result = document.querySelector('.result');
+    let playerScoreDisplay = document.querySelector('.player-score');
+    let computerScoreDisplay = document.querySelector('.computer-score');
+    let playerSelectionDisplay = document.querySelector('.player-selection');
+    let computerSelectionDisplay = document.querySelector('.computer-selection');
+
+    if (playerScore >= 5 || computerScore >= 5) {
+        return;
+    }
+
+    else if (playerSelection == computerSelection) {
         playerScore += 0;
         computerScore += 0;
-        return `It's TIE!`
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+        playerSelectionDisplay.textContent = playerSelection;
+        computerSelectionDisplay.textContent = computerSelection;
+        result.textContent = `It's TIE!`;
+        result.style.color = 'gray';
     } else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
         playerScore += 0;
         computerScore += 1;
-        return "You Loose! Paper beats Rock";
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+        playerSelectionDisplay.textContent = playerSelection;
+        computerSelectionDisplay.textContent = computerSelection;
+        result.textContent = "You Loose! Paper beats Rock";
+        result.style.color = 'red';
+
     } else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
         playerScore += 1;
         computerScore += 0;
-        return `You Win! Rock beats Scissors`;
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+        playerSelectionDisplay.textContent = playerSelection;
+        computerSelectionDisplay.textContent = computerSelection;
+        result.textContent = `You Win! Rock beats Scissors`;
+        result.style.color = 'green';
+
     } else if (playerSelection == 'PAPER' && computerSelection == "ROCK") {
         playerScore += 1;
         computerScore += 0;
-        return "You Win! Paper beats Rock";
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+        playerSelectionDisplay.textContent = playerSelection;
+        computerSelectionDisplay.textContent = computerSelection;
+        result.textContent = "You Win! Paper beats Rock";
+        result.style.color = 'green';
+
     } else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
         playerScore += 0;
         computerScore += 1;
-        return "You Lose! Scissor beats Paper";
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+        playerSelectionDisplay.textContent = playerSelection;
+        computerSelectionDisplay.textContent = computerSelection;
+        result.textContent = "You Loose! Scissor beats Paper";
+        result.style.color = 'red';
+
     } else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
         playerScore += 0;
         computerScore += 1;
-        return "You Loose! Rock beats Scissors";
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+        playerSelectionDisplay.textContent = playerSelection;
+        computerSelectionDisplay.textContent = computerSelection;
+        result.textContent = "You Loose! Rock beats Scissors";
+        result.style.color = 'red';
+
     } else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
         playerScore += 1;
         computerScore += 0;
-        return "You Win! Scissors beats Paper";
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore;
+        playerSelectionDisplay.textContent = playerSelection;
+        computerSelectionDisplay.textContent = computerSelection;
+        result.textContent = "You Win! Scissors beats Paper";
+        result.style.color = 'green';
+
     } else {
         return 'Game Cancelled by the player'
     }
+    if (playerScore >= 5 || computerScore >= 5) {
+        if (playerScore > computerScore) {
+            winner.textContent = 'Winner is Player';
+            winner.style.color = 'green';
+        } else if (playerScore < computerScore) {
+            winner.textContent = 'Winner is Computer';
+            winner.style.color = 'green';
+        } else {
+            winner.textContent = `It's TIE!`;
+            winner.style.color = 'green';
+        }
+    }
 }
 
-function playGame() {
-    let playerSelection = getPlayerSelection();
-    let computerSelection = getComputerChoice();
-    console.log(playerSelection);
-    console.log(computerSelection);
-    return playRound(playerSelection, computerSelection)
-}
+// function playGame() {
+//     let playerSelection = getPlayerSelection();
+//     let computerSelection = getComputerChoice();
+//     console.log(playerSelection);
+//     console.log(computerSelection);
+//     return playRound(playerSelection, computerSelection)
+// }
 
-let playerScore = 0;
-let computerScore = 0;
 
 // for (let i = 0; i < 5; i++) {
 //     console.log(playGame());
 // }
 
-console.log("Player Score is " + playerScore);
-console.log("Computer Score is " + computerScore);
 
-if (playerScore > computerScore) {
-    console.log(`Winner is Player`);
-} else if (playerScore < computerScore) {
-    console.log(`Winner is Computer`)
-} else {
-    console.log(`It's TIE!`);
-}
+
+
+
+
+let playerScore = 0;
+let computerScore = 0;
+
+let buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.value;
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+    })
+})

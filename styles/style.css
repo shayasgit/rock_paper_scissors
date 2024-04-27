@@ -42,6 +42,10 @@ h1 {
     color: red;
 }
 
+.result {
+    width: 500px;
+}
+
 .heading, .scores, .selections {
     text-decoration: underline;
 }
